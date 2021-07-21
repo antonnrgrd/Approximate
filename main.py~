@@ -1,0 +1,9 @@
+from solution import Solution
+import os
+def main():
+    #solution = Solution()
+    #solution.write_out_solution()
+    print('Working DIR:',os.getcwd())
+    report = open(os.path.join(os.getcwd(), 'approximate_report/ouutput.tex'),'w')
+if __name__ == '__main__':
+    main()

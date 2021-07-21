@@ -1,0 +1,12 @@
+import linear_algebra.py
+
+class LinearOptimization(MatrixHolder):
+    def __init__(self, term, objective, integer_solution):
+        MatrixHolder.__innit__(self, term)
+        self.objective = objecttive
+        self.integer_solution = integer_solution
+    def canonicalize(self):
+        
+        
+        
+        
