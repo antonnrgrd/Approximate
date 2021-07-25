@@ -16,10 +16,6 @@ class Solution(metaclass=abc.ABCMeta):
         self.computation_time = None
     ''' The write contents solution method responsbile for writing out the actual input, args comps etc. Since said values have
     such as huge variability depending on what class does the inherting, it will be defined as an interface'''
-    def write_contents(self, filename):
-        pass
-    def write_steps(self, filename):
-        pass
     def write_out_solution(self):
         '''To avoid overwriting reports, we chose to uniquely represent each
         report by a timestamp + day  '''
