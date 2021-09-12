@@ -13,13 +13,20 @@ class MatrixOperators(Solution):
                 filename.write('\\[ \n')
                 filename.write('\\begin{bmatrix} \n')
                 '''If the size of rows/columns of the resulting matrix is bigger than 10 in dimension, we need to write it out differently as,it is too big to write out conventionally and instead write 10 values of the matrix per line. We use index iteration as this allows us to simultaneously '''
-                if matrix.shape[0] > 10 or matrix.shape[1] > 10:
+                if matrix.shape[0] > 1 or matrix.shape[1] > 1:
+                    numbers_written = 0
                     for i in range(matrix.shape[0]):
                         for j in range(matrix.shape[1]):
-                            for k in range(5):
-                                filename.write('\\text{'+ str(i) + ',' + str(j) + ' : } ' + str(matrix[i][j]) + ' & ')
-                            filename.write('\\\\ \n')
-                                
+                                filename.write(' \\text{ '+ str(i) + ' , ' + str(j) + ' :  ' + str(matrix[i][j]) + '}'  )
+                                ''' This is pretty ugly and not very Python-y but other solutions online discuss how various built-in
+                                methods for processing n values at a time has some issue or another regarding cases when there are not
+                                sufficient values left in a list'''
+                                numbers_written = numbers_written +1
+                                if numbers_written == 5:
+                                    nummbers_written = 0
+                                    filename.write('\\\\ \n')
+                                else:
+                                    filename.write(' & ')
                 else:
                     for row in matrix:
                         for value in row:

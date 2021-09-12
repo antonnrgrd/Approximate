@@ -1,0 +1,1 @@
+NOTE: I am (probably) getting errors when trying to write large matrices in Latex because the size of the matrix exceeds the max. size matrix that Latex supports writing.
