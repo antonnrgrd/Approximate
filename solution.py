@@ -34,7 +34,7 @@ class Solution(metaclass=abc.ABCMeta):
         self.report = file_name
         report = open(file_name, 'w')
         '''An ugly way to write, but afaik there is no really elegant way to make a large write to a file As a side note, using \n is a passable way to write a newline when writing to a file, but an argument broke out in the stackoverflow thread arguing about whther some other technique is superior. For now i will just use \n'''
-        report.write('\\documentclass[]{article} \n \\usepackage{amsmath} \n \\usepackage{float} \n \\setcounter{MaxMatrixCols}{100000000000000000000000} \n \\begin{document} \n \\tableofcontents \n \\section{Summary} \n')
+        report.write('\\documentclass[]{article} \n \\usepackage{amsmath} \n \\usepackage{float} \n \\begin{document} \n \\tableofcontents \n \\section{Summary} \n')
         self.write_contents(report)
         if self.verbose == True:
             self.write_steps()
