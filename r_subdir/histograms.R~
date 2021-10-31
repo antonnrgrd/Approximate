@@ -1,0 +1,12 @@
+
+yield_hist <-function(title, dataframe, x_tile = "values"){
+	   if(is.data.frame(dataframe)){
+	   return(hist(dataframe, main = title, xlab = ))
+	   }
+	   #We won't bother verifying if it is a valid string path as it is intended
+	   #for the user to specify a path using a GUI, making that redundant
+	   else if (is.string(dataframe)){
+	   dataframe = tryCatch({read.csv(dataframe), 
+	   })
+	   }
+}

@@ -1,0 +1,9 @@
+from tkinter import *
+
+linear_algebra_choices = [ "Matrix Addition", "Matrix Multiplication", "Matrix Inversion"]
+
+npc_choices = {"Traveling Salesman"}
+
+menu_name = "Approximate"
+
+nill_choice = ""

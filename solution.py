@@ -2,6 +2,8 @@ import os
 from datetime import datetime
 from os.path import expanduser
 import abc
+#We import thread because there will be several attempts at multithreading the various problems
+import thread
 '''A class representing a solution. We are deliberately vague about the error types, computations, solutions, etc.
 due to the many different shapes there could take '''
 class Solution(metaclass=abc.ABCMeta):

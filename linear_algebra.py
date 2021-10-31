@@ -2,7 +2,7 @@ import numpy as np
 from solution import Solution
 
 
-    
+
 
 class MatrixOperators(Solution):
     def __init__(self,generate_report = False, verbose = False):
@@ -96,7 +96,10 @@ class MatrixOperators(Solution):
     def find_inverse(self, matrix):
         self.arguments = []
         pass
-        
+    def cross_product(self, first_vector, second_vector):
+        if first_vector.shape != second_vector.shape:
+            if self.generate_report == True:
+            return
                     
             
             
