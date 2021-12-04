@@ -1,0 +1,14 @@
+from tkinter import *
+'''Basically a class that encapsualtes the GUI interface that Approximate uses, because the increasign complexity means that 
+it no longer suffices to use ad-hoc solution'''
+
+class ChainedWindows(Frame):
+    def __init__(self, tex_enabled, master)
+    '''Because latex might not be installed on the pc in question, we need to check if it is, in order to enable/disable 
+    generating reports'''
+    
+    self.tex_enabled = tex_enabled
+    Frame.__init__(self, master):
+    self.master = master
+
+    def 
