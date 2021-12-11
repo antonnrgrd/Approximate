@@ -2,9 +2,8 @@ import os
 from tkinter import *
 from GuiInterface import UserMenu
 from menu_constants import *
-from selection_handler import *
 from chained_windows import *
-from linear_algebra import *
+#from linear_algebra import *
 
 
 
@@ -17,7 +16,7 @@ def main():
     
     root = Tk()
     #Adds title to the file menu
-    chained_window = ChainedWindows(True,root)
+    chained_window = ChainedWindows(root)
     root.wm_title("Approximate")
     root.mainloop()
     
