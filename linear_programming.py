@@ -8,6 +8,8 @@ class LinearProgramming(Solution):
         self.constraints = None
         self.slack_index = None
         self.artifical_var_index = None
+        '''We might sometimes have to reverse/flip an inequality. For that we opt to use a dictionary to do this'''
+        self.constraint_map = {'>=': '<=', '<=':'>=' }
         '''In order to add slack variables to the canonical tablueau, we basically add slack variables at positions of the tableau at increments of one. 
         The initial slack variable is to be placed at the last position where a 0 occurs'''
     def yield_slack_artvar(self,slack_index,artvar_index, vectorlength, negative_slackvar):
@@ -28,6 +30,11 @@ class LinearProgramming(Solution):
         
             
     def add_constraint(self,constraint,slack_index,artvar_index,tableau,vector_length):
+        ''' '''
+        if constraint[-1] < 0:
+           constraint[0:-2],constraint[-1] = np.negative(constraint[0:-2]), np.negative(constraint[-1])
+           constraint[-2] = self.constraint_map[constraint[-2]]
+           print(constraint)
         ''' strictly greater or less than are not considered as they are not defined in LP programming '''
         if constraint["ineq"] == '>=':
             '''We cast the values to be lists because Numpy arrays are not intended to be constantly resized, whereas lists are more suited for this '''
