@@ -9,46 +9,6 @@ class MatrixOperators(Solution):
         super().__init__(generate_report, verbose)
         '''The implementation of the standard matrix-matrix multiplication. For sake of readability and understanding, the most basic
         algorithm is used'''
-    def write_matrix(self, matrix, filename):
-                
-                '''If either matrix shape exceeds the size of 5, we need to write it out as several matrices. This is because latex has a limit on how large a single matrix can be when writing it out.'''
-                if matrix.shape[0] > 5 or matrix.shape[1] > 5:
-                    numbers_written = 0
-                    values_written = 0
-                    filename.write('\\[ \n')
-                    filename.write('\\begin{matrix} \n')
-                    for i in range(matrix.shape[0]):
-                        for j in range(matrix.shape[1]):
-                            '''Because floating point numbers can end up with a lot of digits after the decimal point and thus making writingthem out on '''
-                                filename.write(' \\text{ '+ str(i) + ' , ' + str(j) + ' :  ' + str(round(matrix[i][j],3)) + '}'  )
-                                ''' This is pretty ugly and not very Python-y but other solutions online discuss how various built-in
-                                methods for processing n values at a time has some issue or another regarding cases when there are not
-                                sufficient values left in a list'''
-                                numbers_written = numbers_written +1
-                                values_written = values_written + 1
-                                if numbers_written == 5:
-                                    nummbers_written = 0
-                                    filename.write('\\\\ \n')
-                                else:
-                                    filename.write(' & ')
-                                if values_written == 5:
-                                    values_written = 0
-                                    filename.write('\\end{matrix} \n')
-                                    filename.write('\\]')
-                                    filename.write('\\[ \n')
-                                    filename.write('\\begin{matrix} \n')
-                    filename.write('\\end{matrix} \n')
-                    filename.write('\\]')
-                    
-                else:
-                    filename.write('\\[ \n')
-                    filename.write('\\begin{bmatrix} \n')
-                    for row in matrix:
-                        for value in row:
-                            filename.write(str(round(value,3)) + ' & ')
-                        filename.write('\\\\ \n')
-                    filename.write('\\end{bmatrix} \n')
-                    filename.write('\\]')
     def write_contents(self, filename):
         print('arguments',self.arguements)
         print('solutionss',self.solutions)
