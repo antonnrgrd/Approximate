@@ -30,7 +30,7 @@ class LinearProgramming(Solution):
         
             
     def add_constraint(self,constraint,slack_index,artvar_index,tableau,vector_length):
-        ''' '''
+        '''In the event of a negative RHS term, we are obligated by the requirements of the standard form to negate the LHS and RHS of the constraint and in the process also reverse the constraint '''
         if constraint[-1] < 0:
            constraint[0:-2],constraint[-1] = np.negative(constraint[0:-2]), np.negative(constraint[-1])
            constraint[-2] = self.constraint_map[constraint[-2]]

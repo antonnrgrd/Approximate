@@ -1,0 +1,8 @@
+
+class StatPlots(Solution):
+
+    def plot_vals(self,value_series,writer):
+        writer.write('\begin{tikzpicure}')
+        for value in series:
+        writer.write('\end{tikzpicure}')
+        
