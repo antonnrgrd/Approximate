@@ -1,6 +1,6 @@
 import numpy as np
 from solution import Solution
-
+from scipy import linalg
 
 
 
@@ -59,7 +59,10 @@ class MatrixOperators(Solution):
     def cross_product(self, first_vector, second_vector):
         if first_vector.shape != second_vector.shape:
             if self.generate_report == True:
+                pass
             return
+    def row_echelon_form():
+        pass
                     
             
             

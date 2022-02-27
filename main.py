@@ -26,6 +26,7 @@ def main():
     LP.tableau = LP.canonicalize_tableau(pframe)
     print('result is now')
     print(LP.tableau)
+    LP.find_pivot()
     
 
     '''

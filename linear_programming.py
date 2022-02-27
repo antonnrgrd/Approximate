@@ -46,7 +46,7 @@ class LinearProgramming(Solution):
         return tableau
         
     def canonicalize_tableau(self,constraints_table):
-        goal = constraints_table.loc["obj"]
+        tableau_objective = constraints_table.loc["obj"]
         initial_tableau = []
         '''The number of artificial and slack variables could potentially be up to # 2*(constraints-1), so we reserve enough space for that. This might possibly waste memory if e.g only equality constraints are present, meaning no slack variables are needed, only artificial variables. However, for now there is only focus on writing a program that works and later on, a more clever solution for allocating space for these variables can be devised. Hence, we compute the size of the slack and artifical variable vector as such'''
 
@@ -58,19 +58,34 @@ class LinearProgramming(Solution):
         '''We skip the first row since it is designated for the objective of the problem
         rather than constraints'''
         for rowindex, constraint in constraints_table[1:].iterrows():
-            initial_tableau = self.add_constraint(constraint, self.slack_index,self.artifical_var_index, initial_tableau, slack_artvar_vectorsize)            
-        tableau_objective = list(np.negative(goal[0:-2]))
+            initial_tableau = self.add_constraint(constraint, self.slack_index,self.artifical_var_index, initial_tableau, slack_artvar_vectorsize)
+        ''' iff the problem is a min. problem, multiply it by -1 to make it into a max. problem '''
+        if constraints_table.loc["obj","val"] == -np.inf:                     
+            tableau_objective = list(np.negative(tableau_objective[0:-2]))
+        else:
+            tableau_objective = list(tableau_objective[0:-2])
         '''We create the last objective vector to be  slack_artvar_vectorsize+1 to account for the fact that the constraint does not have a rhs'''
         objective_vector = list(np.zeros(slack_artvar_vectorsize+1))
         objective_vector[-2] = 1
         initial_tableau.append(tableau_objective+ objective_vector)
         '''We we work with list in the building of the tableau and convert it to a numpy arrays as numpy arrays are intended/made with resizing in mind'''
         return np.array(initial_tableau)
-            
+    
+    def find_pivot(self):
+        most_negative_value = min(self.tableau.columns[-1])
+        print(most_negative_value)
+        
+
                 
     def simplex(self):
         if self.canonical_form == False:
             self.tableau = self.canonicalize_tableau()
+        #while True:
+        #    pivot_row, pivot =
+
+        
+        
+        
         
         
         
